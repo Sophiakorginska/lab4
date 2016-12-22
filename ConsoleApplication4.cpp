@@ -1,75 +1,64 @@
 #include "stdafx.h"
 #include <iostream>
+
 using namespace std;
 
-class Figures
-{
+class Figures {
 public:
-	virtual double Square()//to calculate the square
-	{
+	//to calculate the square
+	virtual double Square() {
 		return 0;
 	}
-	virtual int Get()//to input
-	{
-		return 0;
-	}
-};
-
-class Plane : public Figures
-{
-public:
-	virtual double Square()
-	{
-		return 0;
-	}
+	//to input
 	virtual int Get()
-	{
 		return 0;
 	}
-
 };
 
-class Circle : public Plane//class for tha figures that are on 2d
-{
+class Plane : public Figures {
 public:
-	int Get()
-	{
+	virtual double Square() {
+		return 0;
+	}
+	virtual int Get() {
+		return 0;
+	}
+};
+
+//class for tha figures that are on 2d
+class Circle : public Plane {
+public:
+	int Get() {
 		cout << " Enter radius :";
 		cin >> r;
 		return 0;
 	}
-	double Square()
-	{
+	double Square() {
 		return 3.14*r*r;
 	}
 private:
 	int r;
 };
 
-class Rectangle : public Plane
-{
+class Rectangle : public Plane {
 public:
-	int Get()
-	{
+	int Get() {
 		cout << "Enter a : ";
 		cin >> a;
 		cout << "Enter  b : ";
 		cin >> b;
 		return 0;
 	}
-	double Square()
-	{
+	double Square() {
 		return a*b;
 	}
 private:
 	int a, b;
 };
 
-class Point : public Plane
-{
+class Point : public Plane {
 public:
-	int Get()
-	{
+	int Get() {
 		cout << "Enter coordinate of x :";
 		cin >> x;
 		cout << "Enter coordinate of y:";
@@ -77,15 +66,12 @@ public:
 		cout << "X" << '(' << x << ',' << y << ')' << '\n';
 		return 0;
 	}
-
 private: int x, y;
 };
 
-class Segment : public Plane
-{
+class Segment : public Plane {
 public:
-	int Get()
-	{
+	int Get() {
 		cout << "Enter the coordinates of the segment:" << endl;
 		cin >> x1 >> y1 >> x2 >> y2;
 		cout << "Length:";
@@ -98,28 +84,23 @@ private:
 	double x1, y1, x2, y2, size;
 };
 
-class Space : public Figures
-{
+class Space : public Figures {
 public:
-	virtual int Get()
-	{
+	virtual int Get() {
 		return 0;
 	}
-	virtual double Square()
-	{
+	virtual double Square() {
 		return 0;
 	}
-	virtual double Extent()
-	{
+	virtual double Extent() {
 		return 0;
 	}
 };
 
-class Parallelepiped : public Space//class for tha figures that are on 3d
-{
+//class for tha figures that are on 3d
+class Parallelepiped : public Space {
 public:
-	int Get()
-	{
+	int Get() {
 		cout << "Enter 1 side of Parallelepiped :";
 		cin >> a;
 		cout << "Enter 2 side of Parallelepiped :";
@@ -128,41 +109,34 @@ public:
 		cin >> c;
 		return 0;
 	}
-	double Square()
-	{
+	double Square() {
 		return 2 * (a*b + a*c + b*c);
 	}
-	virtual double Extent()
-	{
+	virtual double Extent() {
 		return a*b*c;
 	}
 private:
 	int a, b, c;
 };
 
-class Sphere : public Space
-{
+class Sphere : public Space {
 public:
-	int Get()
-	{
+	int Get() {
 		cout << "Enter radius: ";
 		cin >> r;
 		return 0;
 	}
-	double Square()
-	{
+	double Square() {
 		return 4 * 3.14*r*r;
 	}
-	double Extent()
-	{
+	double Extent() {
 		return 4 / 3 * 3.14*r*r*r;
 	}
 private:
 	int r;
 };
 
-int main()
-
+int main() 
 {
 	cout << "Enter figure:" << endl;
 	cout << "1)Circle" << endl;
@@ -171,41 +145,35 @@ int main()
 	cout << "4)Segment" << endl;
 	cout << "5)Parallelepiped" << endl;
 	cout << "6)Sphere" << endl;
-
+	
 	int choise;
 	cin >> choise;
-	if (choise == 1)
-	{
+	if (choise == 1) {
 		Plane *ptr1 = new Circle;
 		ptr1->Get();
 		cout << "Square:" << (ptr1->Square()) << endl;
 	}
-	else if (choise == 2)
-	{
+	else if (choise == 2) {
 		Plane *ptr2 = new Rectangle;
 		ptr2->Get();
 		cout << "Square:" << (ptr2->Square()) << endl;
 	}
-	else if (choise == 3)
-	{
+	else if (choise == 3) {
 		Plane *ptr3 = new Point;
 		ptr3->Get();
 
 	}
-	else if (choise == 4)
-	{
+	else if (choise == 4) {
 		Segment ptr4;
 		ptr4.Get();
 	}
-	else if (choise == 5)
-	{
+	else if (choise == 5) {
 		Space *ptr5 = new Parallelepiped;
 		ptr5->Get();
 		cout << "Square:" << (ptr5->Square()) << endl;
 		cout << "Volume: " << (ptr5->Extent()) << endl;
 	}
-	else if (choise == 6)
-	{
+	else if (choise == 6) {
 		Space *ptr6 = new Sphere;
 		ptr6->Get();
 		cout << "Square:" << (ptr6->Square()) << endl;
