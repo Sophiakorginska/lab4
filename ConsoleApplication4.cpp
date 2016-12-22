@@ -5,15 +5,11 @@ using namespace std;
 class Figures
 {
 public:
-	virtual double Square()
+	virtual double Square()//to calculate the square
 	{
 		return 0;
 	}
-	virtual int Get()
-	{
-		return 0;
-	}
-	virtual double Koord()
+	virtual int Get()//to imput
 	{
 		return 0;
 	}
@@ -51,7 +47,6 @@ private:
 };
 
 class Rectangle : public Plane
-
 {
 public:
 	int Get()
@@ -75,9 +70,9 @@ class Point : public Plane
 public:
 	int Get()
 	{
-		cout << "Enter x :";
+		cout << "Enter coordinate of x :";
 		cin >> x;
-		cout << "Enter  y:";
+		cout << "Enter coordinate of y:";
 		cin >> y;
 		cout << "X" << '(' << x << ',' << y << ')' << '\n';
 		return 0;
@@ -125,11 +120,11 @@ class Parallelepiped : public Space
 public:
 	int Get()
 	{
-		cout << "Enter a :";
+		cout << "Enter 1 side of Parallelepiped :";
 		cin >> a;
-		cout << "Enter  b:";
+		cout << "Enter 2 side of Parallelepiped :";
 		cin >> b;
-		cout << "Enter c :";
+		cout << "Enter 3 side of Parallelepiped :";
 		cin >> c;
 		return 0;
 	}
