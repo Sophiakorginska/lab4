@@ -9,7 +9,7 @@ public:
 	{
 		return 0;
 	}
-	virtual int Get()//to imput
+	virtual int Get()//to input
 	{
 		return 0;
 	}
