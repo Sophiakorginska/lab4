@@ -29,7 +29,7 @@ public:
 
 };
 
-class Circle : public Plane
+class Circle : public Plane//class for tha figures that are on 2d
 {
 public:
 	int Get()
@@ -109,13 +109,13 @@ public:
 	{
 		return 0;
 	}
-	virtual double Extend()
+	virtual double Extent()
 	{
 		return 0;
 	}
 };
 
-class Parallelepiped : public Space
+class Parallelepiped : public Space//class for tha figures that are on 3d
 {
 public:
 	int Get()
@@ -132,7 +132,7 @@ public:
 	{
 		return 2 * (a*b + a*c + b*c);
 	}
-	virtual double Extend()
+	virtual double Extent()
 	{
 		return a*b*c;
 	}
@@ -153,7 +153,7 @@ public:
 	{
 		return 4 * 3.14*r*r;
 	}
-	double Extend()
+	double Extent()
 	{
 		return 4 / 3 * 3.14*r*r*r;
 	}
@@ -202,14 +202,14 @@ int main()
 		Space *ptr5 = new Parallelepiped;
 		ptr5->Get();
 		cout << "Square:" << (ptr5->Square()) << endl;
-		cout << "Volume: " << (ptr5->Extend()) << endl;
+		cout << "Volume: " << (ptr5->Extent()) << endl;
 	}
 	else if (choise == 6)
 	{
 		Space *ptr6 = new Sphere;
 		ptr6->Get();
 		cout << "Square:" << (ptr6->Square()) << endl;
-		cout << "Volume: " << (ptr6->Extend()) << endl;
+		cout << "Volume: " << (ptr6->Extent()) << endl;
 	}
 	else
 		cout << "Error" << endl;
